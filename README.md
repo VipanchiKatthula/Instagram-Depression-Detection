@@ -7,6 +7,7 @@
 * [Data](#data)
 * [Implementation](#implementation)
 * [Results](#results)
+* [Conclusion](#conclusion)
 
 ## TECHNOLOGIES
 Project is created with:
@@ -29,7 +30,7 @@ According to the World Health Organization (WHO), Depression is the leading caus
 This project focuses on finding the important markers of PTSD based on the captions and images a person posts on the social media platform, Instagram. A machine learning model is built to classify whether a person may be suffering from PTSD based on their Instagram posts (text and images).
 
 ## DATA
-The data for the project was collected manually. First a cohort of 150 individuals were selected. After setting constraints on the minimum number of instagram posts, stratified sampling with age and gender 
+The data for the project was collected manually. First a cohort of 150 individuals were selected. After setting constraints on the minimum number of instagram posts, stratified sampling with age and gender a group of 50 depressed individuals(self-reported on instagram) were selected and analyzed. Another set of 50 non-depressed individuals were identified using matched pairs methodogy. With the data being sensitive to the users, I am not sharing the data on GitHub.
 
 ## IMPLEMENTATION
 Instagram handles of 50 individuals suffering from PTSD and 50 non-depressed individuals were collected with thorough analysis using keywords proving their mental health status. Matched pairs methodology was used to maintain similar distribution among the selected individuals for both groups by their gender and age demographics. Text and images of instagram posts were analysed separately. Topic modelling was done to identify word patterns to distinguish depressed individuals from non-depressed individuals. Unsupervised Latent Dirichlet Allocation(LDA) and Supervised Correlation Explanation(Corex) models were developed. Text models were built with 10,695 word features and their
