@@ -44,7 +44,10 @@ Text analysis of instagram posts using the Supervised CorEx algorithm revealed t
 
 Linear Support Vector Classifier(SVC) model was best to identify the depressed individuals using the text TF-IDF features with accuracy - 92.895%, precision - 98% and recall - 92%. Predicting data using Linear SVC model on test data resulted in an accuracy of 89%, precision - 85% and recall - 85%.
 
+![GitHub Logo](/images/logisticoutput.png)
+
 Image analysis revealed that the **average Hue value for Happy people was found to be lesser than depressed people**, indicating that images of depressed people were more blue and images of happy people were more red(P<2.2e-16, depressed -124, non-depressed - 65.3). **Happy people had more gray and faded images as compared to depressed people(P<1.319e-09)**. **Happy people posted brighter images than depressed people** who posted images which were dull and sometimes blurred and darker(P<2.8e-12).
+![GitHub Logo](/images/imageanalysis.PNG)
 
 **Facecount was on average 1 or 2 for depressed people** as compared to an **average of 4 for happy people** who loved posting in groups quite often(P<0.01). **Only 1 out of 15 photos had smiling faces in the depressed category** as compared to **1 out every 3 photos for non-depressed profiles(P<0.01).**
 
