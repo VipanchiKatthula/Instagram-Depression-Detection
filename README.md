@@ -1,5 +1,4 @@
 # Instagram-Depression-Detection
-![GitHub Logo](/images/intro_slide.PNG)
 ### TABLE OF CONTENTS
 * [Objective](#objective)
 * [Technologies](#technologies)
