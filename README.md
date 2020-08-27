@@ -32,17 +32,29 @@ This project focuses on **finding the important markers of PTSD** based on the *
 ## DATA
 The data for the project was collected manually. First a cohort of 150 individuals were selected. After setting constraints on the minimum number of instagram posts, stratified sampling with age and gender a group of 50 depressed individuals(self-reported on instagram) were selected and analyzed. Another set of 50 non-depressed individuals were identified using matched pairs methodogy. With the data being sensitive to the users, I am not sharing the data on GitHub.
 
-The data was pulled using https://github.com/instaloader/instaloader for all the individuals. The project only deals with instagram accounts which are public as private accounts cannot be scraped without becoming friends with them on Instagram. 
+The data was pulled using https://github.com/instaloader/instaloader for all the individuals. The project only deals with instagram accounts which are public as private accounts cannot be scraped without becoming friends with them on Instagram.
+
+* Emoji analysis from Text
+
+![GitHub Logo](/images/emojianalysis.PNG)
 
 ## IMPLEMENTATION
-Instagram handles of 50 individuals suffering from PTSD and 50 non-depressed individuals were collected with thorough analysis using keywords proving their mental health status. Matched pairs methodology was used to maintain similar distribution among the selected individuals for both groups by their gender and age demographics. Text and images of instagram posts were analysed separately. Topic modelling was done to identify word patterns to distinguish depressed individuals from non-depressed individuals. Unsupervised **Latent Dirichlet Allocation(LDA)** and **Supervised Correlation Explanation(Corex)** models were developed. Text models were built with 10,695 word features and their
+* Instagram handles of 50 individuals suffering from PTSD and 50 non-depressed individuals were collected with thorough analysis using keywords proving their mental health status. Matched pairs methodology was used to maintain similar distribution among the selected individuals for both groups by their gender and age demographics. Text and images of instagram posts were analysed separately. 
+* Topic modelling was done to identify word patterns to distinguish depressed individuals from non-depressed individuals. Unsupervised **Latent Dirichlet Allocation(LDA)** and **Supervised Correlation Explanation(Corex)** models were developed. Text models were built with 10,695 word features and their
 corresponding TF-IDF scores to predict the mental health status as Depressed and Non-depressed. **Random Forest Classifier, Linear Support Vector Classifier(SVC), Multinomial Naive Bayes and Logistic Regression models** were built and analyzed with 5-fold cross validation.
-Image analysis in both depressed and non-depressed categories was done using openCV library and python language to extract image features such as Hue, Saturation and Brightness. Tesseract library was used to segregate images containing text and images containing faces/ nature shots.Images containing text like memes and quotes were removed. HSV values were recorded for each photo of users and were aggregated to generate data at user level. Facecount and smile was extracted using the HAARCascade implementation for detecting faces using the openCV library. Facecount and smile features were added to the dataframe with all the HSV values. The maximum, minimum and mean of HSV , facecount , number of photos with smiles and total photos with faces were used to develop a Logistic Regression Model.
+* Image analysis in both depressed and non-depressed categories was done using openCV library and python language to extract image features such as Hue, Saturation and Brightness. Tesseract library was used to segregate images containing text and images containing faces/ nature shots.Images containing text like memes and quotes were removed. HSV values were recorded for each photo of users and were aggregated to generate data at user level. 
+* Facecount and smile was extracted using the HAARCascade implementation for detecting faces using the openCV library. Facecount and smile features were added to the dataframe with all the HSV values. The maximum, minimum and mean of HSV , facecount , number of photos with smiles and total photos with faces were used to develop a Logistic Regression Model.
 
 ## RESULTS
 Exploratory analysis revealed that out of the 14 numeric variables only 4 variables were significant based on t-test with the target variable, with p-value lower than 0.05.For the two categorical columns female and age category, Chi-square test showed a p-value of 0.005095 for age category making it a significant variable.Correlation matrix revealed that there was no significant correlation between any two numerical variables.
 
 Text analysis of instagram posts using the Supervised CorEx algorithm revealed that causes of depression were abuse, accident, loss and trauma. The Symptoms of depression were illness,mentally, broken, breaking and hiding. The Coping Mechanisms of the depressed were doing meditation, expressing emotions and struggles, getting fit, motivation and maintaining balance. The treatment options used by the individuals were expressed by the use of words like therapy, healing, challenging, feeling like and overwhelmed. The physical symptoms of depression were identified to be drugs, alcohol, sweat, harm and drinking.
+
+* Anchors
+![GitHub Logo](/images/CorExAnchors.PNG)
+
+* Output 
+![GitHub Logo](/images/CorExoutput.PNG)
 
 Linear Support Vector Classifier(SVC) model was best to identify the depressed individuals using the text TF-IDF features with accuracy - 92.895%, precision - 98% and recall - 92%. Predicting data using Linear SVC model on test data resulted in an accuracy of 89%, precision - 85% and recall - 85%.
 
